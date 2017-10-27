@@ -87,8 +87,11 @@ as
 select
   part_num,
   count(distinct set_parts.set_num) as num_sets,
+  sum(quantity) as num_set_parts,
   max(year) as year_to,
-  min(year) as year_from
+  min(year) as year_from,
+  "https://rebrickable.com/parts/" || part_num as part_url,
+  "https://m.rebrickable.com/media/parts/elements/" || part_num || "26.jpg" as part_img_url
 from set_parts
 join sets on sets.set_num = set_parts.set_num
 group by part_num;

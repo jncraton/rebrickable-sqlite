@@ -67,6 +67,12 @@ where part_num = 3004 and color_id = 3;
 
 -- Get years when a part was produced
 
-select part_num, year_from, year_to, num_sets
+select part_num, year_from, year_to, num_sets, num_set_parts
+from part_info
+where part_num = 3004;
+
+-- Get part urls
+
+select part_num, part_url, part_img_url
 from part_info
 where part_num = 3004;
