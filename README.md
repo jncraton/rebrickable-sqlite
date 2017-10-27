@@ -1,6 +1,8 @@
 # rebrickable-database
 
-This is set of scripts to import and create a local copy of the Rebrickable database. This uses the CSV downloads provided by Rebrickable, so it is a relatively quick and easy way to create a local copy of all Lego parts and set inventories.
+This is set of scripts to create a local copy of the Rebrickable database. This uses the CSV downloads provided by Rebrickable, so it is a relatively quick and easy way to create a local copy of all Lego parts and set inventories.
+
+It includes custom views and indices to make working with this data more efficient.
 
 ## Getting started
 
