@@ -52,6 +52,29 @@ create table if not exists inventory_sets (
   quantity int
 );
 
+drop view set_parts;
+create view if not exists set_parts
+as 
+select 
+  set_num,
+  inventory_id, 
+  part_num, 
+  color_id, 
+  quantity, 
+  is_spare
+from inventory_parts 
+join inventories on inventories.id = inventory_parts.inventory_id
+where inventory_id in (
+  select inventories.id from inventories
+  inner join (
+    select id, max(version) as version
+    from inventories
+    group by id
+  ) g
+  on inventories.id = g.id
+  and inventories.version = g.version
+);
+
 delete from themes;
 delete from colors;
 delete from part_categories;

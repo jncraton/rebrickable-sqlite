@@ -17,6 +17,12 @@ where inventory_id = (
   limit 1
 );
 
+-- More succinctly, you can use the `set_parts` view to get parts in a set
+
+select partnum, color_id, quantity
+from set_parts
+where set_num = '10193';
+
 -- List top 10 parts based on the number of inventories they are in
 
 select 

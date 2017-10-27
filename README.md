@@ -26,11 +26,17 @@ select part_num, color_id, quantity
 from inventory_parts 
 where inventory_id = (
   select id from inventories 
-  where set_num='10193-1' --<-- replace with your set number
+  where set_num = '10193-1' --<-- replace with your set number
   order by version desc
   limit 1
 );
 ```
+
+More succinctly, you can use the `set_parts` view:
+
+select partnum, color_id, quantity
+from set_parts
+where set_num = '10193';
 
 ### List top 10 parts based on the number of inventories they are in
 
