@@ -76,3 +76,9 @@ where part_num = 3004;
 select part_num, part_url, part_img_url
 from part_info
 where part_num = 3004;
+
+-- Get years when a part/color combo was produced
+
+select part_num, year_from, year_to, num_sets, num_set_parts, part_img_url
+from part_color_info
+where part_num = 3004 and color_id=10;
