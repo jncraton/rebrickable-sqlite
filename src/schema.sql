@@ -5,8 +5,7 @@ pragma foreign_keys = 1;
 create table if not exists themes (
   id numeric primary key,
   name text,
-  parent_id numeric,
-  foreign key(parent_id) references themes(id)
+  parent_id numeric
 );
 
 create table if not exists colors (
