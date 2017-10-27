@@ -64,3 +64,9 @@ from inventory_parts
 join inventories on inventory_parts.inventory_id = inventories.id
 join sets on inventories.set_num = sets.set_num
 where part_num = 3004 and color_id = 3;
+
+-- Get years when a part was produced
+
+select part_num, year_from, year_to, num_sets
+from part_info
+where part_num = 3004;

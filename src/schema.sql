@@ -81,3 +81,14 @@ where inventory_id in (
   on inventories.id = g.id
   and inventories.version = g.version
 );
+
+create view if not exists part_info
+as
+select
+  part_num,
+  count(distinct set_parts.set_num) as num_sets,
+  max(year) as year_to,
+  min(year) as year_from
+from set_parts
+join sets on sets.set_num = set_parts.set_num
+group by part_num;
