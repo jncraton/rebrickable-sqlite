@@ -21,7 +21,7 @@ where inventory_id = (
 
 select part_num, color_id, quantity
 from set_parts
-where set_num = '10193';
+where set_num = '10193-1';
 
 -- List top 10 parts based on the number of inventories they are in
 
