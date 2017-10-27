@@ -1,9 +1,12 @@
 .timer on
 
+pragma foreign_keys = 1;
+
 create table if not exists themes (
   id numeric primary key,
   name text,
-  parent_id numeric
+  parent_id numeric,
+  foreign key(parent_id) references themes(id)
 );
 
 create table if not exists colors (
@@ -21,13 +24,15 @@ create table if not exists part_categories (
 create table if not exists parts (
   part_num text primary key,
   name text,
-  part_cat_id text
+  part_cat_id text,
+  foreign key(part_cat_id) references part_categories(id)
 );
 
 create table if not exists inventories (
   id int primary key,
   version int,
-  set_num text
+  set_num text,
+  foreign key(set_num) references sets(set_num)
 );
 
 create table if not exists sets (
@@ -35,7 +40,8 @@ create table if not exists sets (
   name text,
   year text,
   theme_id int,
-  num_parts int
+  num_parts int,
+  foreign key(theme_id) references themes(id)
 );
 
 create table if not exists inventory_parts (
@@ -43,13 +49,16 @@ create table if not exists inventory_parts (
   part_num text,
   color_id numeric,
   quantity int,
-  is_spare int
+  is_spare int,
+  foreign key(color_id) references color(id)
 );
 
 create table if not exists inventory_sets (
   inventory_id numeric,
   set_num text,
-  quantity int
+  quantity int,
+  foreign key(inventory_id) references inventories(id),
+  foreign key(set_num) references sets(set_num)
 );
 
 create view if not exists set_parts
