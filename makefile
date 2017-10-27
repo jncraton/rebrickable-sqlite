@@ -3,7 +3,7 @@ bricks.db: tables/themes.csv tables/colors.csv tables/part_categories.csv tables
 	sqlite3 bricks.db < src/import.sql
 
 tables/%.csv:
-	curl -o $@ https://m.rebrickable.com/media/downloads/$(subst tables/,,$@)
+	curl --silent -o $@ https://m.rebrickable.com/media/downloads/$(subst tables/,,$@)
 
 indices: bricks.db
 	sqlite3 bricks.db < src/indices.sql
