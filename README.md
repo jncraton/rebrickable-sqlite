@@ -1,6 +1,6 @@
 # rebrickable-local
 
-![Build status badge](https://api.travis-ci.org/jncraton/rebrickable-database.png?branch=master)
+[![Build Status](https://travis-ci.org/jncraton/rebrickable-local.svg?branch=master)](https://travis-ci.org/jncraton/rebrickable-local)
 
 This is set of scripts to create a local copy of the Rebrickable database. It uses the CSV downloads provided by [Rebrickable](https://rebrickable.com/downloads/) and is a relatively quick and easy way to create a local copy of all Lego parts and set inventories.
 
