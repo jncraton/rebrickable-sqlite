@@ -6,6 +6,7 @@ bricks.db: tables/themes.csv tables/colors.csv tables/part_categories.csv tables
 
 tables/%.csv:
 	curl --silent -o $@ https://m.rebrickable.com/media/downloads/$(subst tables/,,$@)
+	tail -n +2 $@ > $@
 
 indices: bricks.db
 	sqlite3 bricks.db < src/indices.sql
