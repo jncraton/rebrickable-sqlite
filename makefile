@@ -4,6 +4,12 @@ bricks.db: tables/themes.csv tables/colors.csv tables/part_categories.csv tables
 tables/%.csv:
 	curl -o $@ https://m.rebrickable.com/media/downloads/$(subst tables/,,$@)
 
+indices: bricks.db
+	sqlite3 bricks.db < indices.sql
+
+test: bricks.db
+	sqlite3 bricks.db < examples.sql
+
 clean:
 	rm -f bricks.db
 	rm -f tables/*.csv
