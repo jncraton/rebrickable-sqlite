@@ -19,7 +19,7 @@ where inventory_id = (
 
 -- More succinctly, you can use the `set_parts` view to get parts in a set
 
-select partnum, color_id, quantity
+select part_num, color_id, quantity
 from set_parts
 where set_num = '10193';
 
