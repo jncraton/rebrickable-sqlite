@@ -42,3 +42,19 @@ limit 10;
 -- Count total parts
 
 select sum(1) from parts;
+
+-- List all sets containing a particular part
+
+select sets.set_num, sets.name, quantity
+from inventory_parts
+join inventories on inventory_parts.inventory_id = inventories.id
+join sets on inventories.set_num = sets.set_num
+where part_num = 25128;-- List all sets containing a particular part
+
+-- List all sets containing a particular part/color combo
+
+select sets.set_num, sets.name, quantity
+from inventory_parts
+join inventories on inventory_parts.inventory_id = inventories.id
+join sets on inventories.set_num = sets.set_num
+where part_num = 3004 and color_id = 3;
