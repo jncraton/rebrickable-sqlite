@@ -1,4 +1,4 @@
-# rebrickable-database
+# rebrickable-local
 
 ![Build status badge](https://api.travis-ci.org/jncraton/rebrickable-database.png?branch=master)
 
