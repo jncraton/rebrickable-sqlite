@@ -49,6 +49,7 @@ create table if not exists inventory_parts (
   color_id numeric,
   quantity int,
   is_spare int,
+  foreign key(inventory_id) references inventories(id),
   foreign key(color_id) references colors(id)
 );
 
