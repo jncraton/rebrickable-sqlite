@@ -59,3 +59,7 @@ group by inventory_parts.part_num
 order by total_quantity desc
 limit 10;
 ```
+
+### More examples
+
+These examples, along with others, are available in the runable SQLite script `examples.sql`.
