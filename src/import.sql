@@ -20,5 +20,3 @@ delete from inventory_sets;
 .import tables/inventories.csv inventories
 .import tables/inventory_parts.csv inventory_parts
 .import tables/inventory_sets.csv inventory_sets
-
-vacuum;
