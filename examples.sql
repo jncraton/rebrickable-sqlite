@@ -1,12 +1,13 @@
 -- Show performance information
 .timer on
 
--- Get all colors
+-- Get colors
 
 select id, name 
-from colors;
+from colors
+limit 5;
 
--- Get all parts in a set
+-- Get parts in a set
 
 select part_num, color_id, quantity
 from inventory_parts 
@@ -15,15 +16,17 @@ where inventory_id = (
   where set_num='10193-1' --<-- replace with your set number
   order by version desc
   limit 1
-);
+)
+limit 5;
 
 -- More succinctly, you can use the `set_parts` view to get parts in a set
 
 select part_num, color_id, quantity
 from set_parts
-where set_num = '10193-1';
+where set_num = '10193-1'
+limit 5;
 
--- List top 10 parts based on the number of inventories they are in
+-- List top 5 parts based on the number of inventories they are in
 
 select 
   part_num,
@@ -31,7 +34,7 @@ select
 from inventory_parts
 group by part_num
 order by total_quantity desc
-limit 10;
+limit 5;
 
 -- Same as above, but including part names
 
@@ -43,27 +46,29 @@ from inventory_parts
 join parts on parts.part_num = inventory_parts.part_num
 group by inventory_parts.part_num
 order by total_quantity desc
-limit 10;
+limit 5;
 
 -- Count total parts
 
 select sum(1) from parts;
 
--- List all sets containing a particular part
+-- List sets containing a particular part
 
 select sets.set_num, sets.name, quantity
 from inventory_parts
 join inventories on inventory_parts.inventory_id = inventories.id
 join sets on inventories.set_num = sets.set_num
-where part_num = 25128;-- List all sets containing a particular part
+where part_num = 25128
+limit 5;
 
--- List all sets containing a particular part/color combo
+-- List sets containing a particular part/color combo
 
 select sets.set_num, sets.name, quantity
 from inventory_parts
 join inventories on inventory_parts.inventory_id = inventories.id
 join sets on inventories.set_num = sets.set_num
-where part_num = 3004 and color_id = 3;
+where part_num = 3004 and color_id = 3
+limit 5;
 
 -- Get years when a part was produced
 
