@@ -21,5 +21,5 @@ select * from inventory_parts where
       where set_num='10193-1' --<-- replace with your set number
       order by version desc
       limit 1
-  )
+  );
 ```
