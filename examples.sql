@@ -1,6 +1,11 @@
 -- Show performance information
 .timer on
 
+-- Get all colors
+
+select id, name 
+from colors;
+
 -- Get all parts in a set
 
 select part_num, color_id, quantity
@@ -33,3 +38,7 @@ join parts on parts.part_num = inventory_parts.part_num
 group by inventory_parts.part_num
 order by total_quantity desc
 limit 10;
+
+-- Count total parts
+
+select sum(1) from parts;
