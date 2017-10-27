@@ -1,3 +1,5 @@
+.timer on
+
 create table if not exists themes (
   id numeric primary key,
   name text,

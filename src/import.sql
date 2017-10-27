@@ -1,3 +1,4 @@
+.timer on
 .mode csv
 
 delete from themes;
