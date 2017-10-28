@@ -3,60 +3,60 @@
 pragma foreign_keys = 1;
 
 create table if not exists themes (
-  id numeric primary key,
-  name text,
-  parent_id numeric
+  id smallint primary key,
+  name varchar(64),
+  parent_id smallint
 );
 
 create table if not exists colors (
-  id numeric primary key,
-  name text,
-  rgb text,
-  is_trans text
+  id smallint primary key,
+  name varchar(64),
+  rgb varchar(6),
+  is_trans varchar(1)
 );
 
 create table if not exists part_categories (
-  id numeric primary key,
-  name text
+  id smallint primary key,
+  name varchar(64)
 );
 
 create table if not exists parts (
-  part_num text primary key,
-  name text,
-  part_cat_id text,
+  part_num varchar(16) primary key,
+  name varchar(255),
+  part_cat_id smallint,
   foreign key(part_cat_id) references part_categories(id)
 );
 
 create table if not exists inventories (
   id int primary key,
-  version int,
-  set_num text,
+  version smallint,
+  set_num varchar(16),
   foreign key(set_num) references sets(set_num)
 );
 
 create table if not exists sets (
-  set_num numeric primary key,
-  name text,
-  year text,
-  theme_id int,
+  set_num varchar(16) primary key,
+  name varchar(128),
+  year smallint,
+  theme_id smallint,
   num_parts int,
   foreign key(theme_id) references themes(id)
 );
 
 create table if not exists inventory_parts (
-  inventory_id numeric,
-  part_num text,
-  color_id numeric,
-  quantity int,
-  is_spare int,
+  inventory_id int,
+  part_num varchar(16),
+  color_id smallint,
+  quantity smallint,
+  is_spare varchar(1),
   foreign key(inventory_id) references inventories(id),
   foreign key(color_id) references colors(id)
 );
 
 create table if not exists inventory_sets (
-  inventory_id numeric,
-  set_num text,
-  quantity int,
+  inventory_id int,
+  set_num varchar(16),
+  quantity smallint,
   foreign key(inventory_id) references inventories(id),
   foreign key(set_num) references sets(set_num)
 );
