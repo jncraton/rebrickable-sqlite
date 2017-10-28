@@ -10,7 +10,7 @@ It includes custom views and indices to make working with this data more efficie
 
 Simply run `make`.
 
-This will download the table data from Rebrickable and import it into an SQLite database.
+This will download the table data from Rebrickable and import it into an SQLite database. The output database file is dist/bricks.db.
 
 ## Example queries
 
