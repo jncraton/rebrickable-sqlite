@@ -64,23 +64,19 @@ create table if not exists inventory_sets (
 create view if not exists set_parts
 as 
 select 
-  set_num,
-  inventory_id, 
-  part_num, 
-  color_id, 
-  quantity, 
-  is_spare
-from inventory_parts 
-join inventories on inventories.id = inventory_parts.inventory_id
-where inventory_id in (
-  select inventories.id from inventories
-  inner join (
-    select id, max(version) as version
-    from inventories
-    group by id
-  ) g
-  on inventories.id = g.id
-  and inventories.version = g.version
+  i1.set_num,
+  inventory_parts.inventory_id, 
+  inventory_parts.part_num, 
+  inventory_parts.color_id, 
+  inventory_parts.quantity, 
+  inventory_parts.is_spare
+from inventories i1
+left outer join inventory_parts on
+  inventory_parts.inventory_id = i1.id
+where i1.version = (
+  select max(version)
+  from inventories i2 
+  where i1.id = i2.id
 );
 
 create view if not exists part_info
