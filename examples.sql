@@ -87,3 +87,9 @@ where part_num = 3004;
 select part_num, year_from, year_to, num_sets, num_set_parts, part_img_url
 from part_color_info
 where part_num = 3004 and color_id=10;
+
+-- List the part ids for 1 x 1 Clip Vertical
+
+select child_part_num
+from part_relationships
+where parent_part_num = 4085;
