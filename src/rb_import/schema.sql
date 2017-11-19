@@ -118,3 +118,25 @@ select
 from set_parts
 join sets on sets.set_num = set_parts.set_num
 group by part_num, color_id;
+
+-- The parts table doesn't include absolutely every part_num. This view does.
+create view if not exists part_nums
+as
+select part_num as part_num from parts
+union 
+select child_part_num as part_num from part_relationships
+union
+select parent_part_num as part_num from part_relationships;
+
+create view if not exists canonical_parts
+as
+select
+  part_num,
+  case 
+    when parent_part_num is null 
+    then part_num else parent_part_num 
+    end as canonical_part_num
+from part_nums
+left join part_relationships on 
+  child_part_num = part_num
+  and (rel_type = 'M' or rel_type = 'A');

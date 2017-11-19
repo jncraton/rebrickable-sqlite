@@ -93,3 +93,17 @@ where part_num = 3004 and color_id=10;
 select child_part_num
 from part_relationships
 where parent_part_num = 4085;
+
+-- List canoncial parent part id
+
+select part_num, canonical_part_num
+from canonical_parts
+where part_num = '4085';
+
+select part_num, canonical_part_num
+from canonical_parts
+where part_num = '4085a';
+
+select part_num, canonical_part_num
+from canonical_parts
+where part_num = '4085b';
