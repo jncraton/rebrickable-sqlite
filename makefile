@@ -1,25 +1,25 @@
-db = dist/bricks.db
+DB = dist/bricks.db
 sqldump = dist/bricks.sql
 
 all: $(sqldump)
 
-$(sqldump): $(db)
-	sqlite3 $(db) .dump > $(sqldump)
+$(sqldump): $(DB)
+	sqlite3 $(DB) .dump > $(sqldump)
 
-$(db): tables/themes.csv tables/colors.csv tables/part_categories.csv tables/parts.csv tables/part_relationships.csv tables/inventories.csv tables/sets.csv tables/inventory_parts.csv tables/inventory_sets.csv scripts/schema.sql scripts/import.sql
-	sqlite3 $(db) < scripts/schema.sql
-	sqlite3 $(db) < scripts/import.sql
+$(DB): tables/themes.csv tables/colors.csv tables/part_categories.csv tables/parts.csv tables/part_relationships.csv tables/inventories.csv tables/sets.csv tables/inventory_parts.csv tables/inventory_sets.csv scripts/schema.sql scripts/import.sql
+	sqlite3 $(DB) < scripts/schema.sql
+	sqlite3 $(DB) < scripts/import.sql
 
 tables/%.csv:
 	curl --silent https://m.rebrickable.com/media/downloads/$(subst tables/,,$@) | tail -n +2 > $@
 
-indices: $(db)
-	sqlite3 $(db) < scripts/indices.sql
+indices: $(DB)
+	sqlite3 $(DB) < scripts/indices.sql
 
-test: $(db)
-	sqlite3 $(db) < examples.sql
+test: $(DB)
+	sqlite3 $(DB) < examples.sql
 
 clean:
-	rm -f $(db)
+	rm -f $(DB)
 	rm -f $(sqldump)
 	rm -f tables/*.csv
