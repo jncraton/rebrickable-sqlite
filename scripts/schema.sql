@@ -128,6 +128,7 @@ select child_part_num as part_num from part_relationships
 union
 select parent_part_num as part_num from part_relationships;
 
+drop view if exists canonical_parts;
 create view if not exists canonical_parts
 as
 select

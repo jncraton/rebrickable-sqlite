@@ -1,7 +1,7 @@
 .timer on
 .mode csv
 
-pragma foreign_keys = 1;
+pragma foreign_keys = 0;
 
 delete from inventory_sets;
 delete from inventory_parts;
@@ -22,3 +22,13 @@ delete from themes;
 .import tables/inventories.csv inventories
 .import tables/inventory_parts.csv inventory_parts
 .import tables/inventory_sets.csv inventory_sets
+
+insert or ignore into parts (part_num, name, part_cat_id)
+select child_part_num, parts.name, parts.part_cat_id
+from part_relationships
+join parts on part_num = parent_part_num;
+
+insert or ignore into parts (part_num, name, part_cat_id)
+select parent_part_num, parts.name, parts.part_cat_id
+from part_relationships
+join parts on part_num = child_part_num;
