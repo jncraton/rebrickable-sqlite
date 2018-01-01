@@ -1,8 +1,8 @@
-# rebrickable-local
+# rebrickable-import-dumps
 
-[![Build Status](https://travis-ci.org/jncraton/rebrickable-local.svg?branch=master)](https://travis-ci.org/jncraton/rebrickable-local)
+[![Build Status](https://travis-ci.org/jncraton/rebrickable-import-dumps.svg?branch=master)](https://travis-ci.org/jncraton/rebrickable-import-dumps)
 
-This is set of scripts to create a local copy of the Rebrickable database. It uses the CSV downloads provided by [Rebrickable](https://rebrickable.com/downloads/) and is a relatively quick and easy way to create a local copy of all Lego parts and set inventories.
+This is set of scripts to create a local copy of the Rebrickable database. It uses the CSV dumps provided by [Rebrickable](https://rebrickable.com/downloads/) and is a relatively quick and easy way to create a local copy of all Lego parts and set inventories.
 
 It includes custom views and indices to make working with this data more efficient.
 
