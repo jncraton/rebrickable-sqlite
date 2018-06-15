@@ -2,7 +2,7 @@
 
 .timer on
 .mode csv
---.output technic.csv 
+.output technic.csv 
 
 create temp view studded as
 select set_num,sum(quantity) as quantity from set_parts
