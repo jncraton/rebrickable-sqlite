@@ -8,7 +8,7 @@ It includes custom views and indices to make working with this data more efficie
 
 ## Getting started
 
-Simply run `make`.
+Simply run `make`. You will need sqlite3 and curl installed if they are not already.
 
 This will download the table data from Rebrickable and import it into an SQLite database. The output database file is dist/bricks.db.
 
