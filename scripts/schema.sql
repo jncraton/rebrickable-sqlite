@@ -24,6 +24,7 @@ create table if not exists parts (
   part_num varchar(16) primary key,
   name varchar(255),
   part_cat_id smallint,
+  part_material_id smallint,
   foreign key(part_cat_id) references part_categories(id)
 );
 
