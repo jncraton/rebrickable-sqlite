@@ -30,11 +30,25 @@ create table if not exists parts (
 
 create table if not exists part_relationships (
   rel_type varchar(1),
-  child_part_num varchar(16),
-  parent_part_num varchar(16)
+  child_part_num varchar(20),
+  parent_part_num varchar(20)
   --TODO: foreign key constraints currently fail on this table
   --foreign key(child_part_num) references parts(part_num)
   --foreign key(parent_part_num) references parts(part_num)
+);
+
+create table if not exists elements (
+  element_id varchar(16) primary key,
+  part_num varchar(16),
+  color_id smallint,
+  foreign key(part_num) references parts(part_num),
+  foreign key(color_id) references colors(id)
+);
+
+create table if not exists minifigs (
+  fig_num varchar(20) primary key,
+  name varchar(256),
+  num_parts smallint
 );
 
 create table if not exists inventories (
@@ -69,6 +83,14 @@ create table if not exists inventory_sets (
   quantity smallint,
   foreign key(inventory_id) references inventories(id),
   foreign key(set_num) references sets(set_num)
+);
+
+create table if not exists inventory_minifigs (
+  inventory_id int,
+  fig_num varchar(20),
+  quantity smallint,
+  foreign key(inventory_id) references inventories(id),
+  foreign key(fig_num) references minifigs(set_num)
 );
 
 create view if not exists set_parts
