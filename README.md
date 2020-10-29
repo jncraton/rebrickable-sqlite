@@ -1,4 +1,4 @@
-# rebrickable-import-dumps
+# rebrickable-sqlite
 
 [![Build Status](https://travis-ci.org/jncraton/rebrickable-import-dumps.svg?branch=master)](https://travis-ci.org/jncraton/rebrickable-import-dumps)
 
