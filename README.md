@@ -12,6 +12,8 @@ Simply run `make`. You will need sqlite3 and curl installed if they are not alre
 
 This will download the table data from Rebrickable and import it into an SQLite database. The output database file is dist/bricks.db.
 
+Alternatively, you can download a complete version of the [database](https://rebrickable-sqlite.netlify.app/bricks.db) directly, but this won't include the newest set and element updates.
+
 ## Example queries
 
 ### List all colors
