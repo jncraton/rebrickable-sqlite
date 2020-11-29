@@ -18,9 +18,12 @@ delete from themes;
 .import tables/part_categories.csv part_categories
 .import tables/parts.csv parts
 .import tables/part_relationships.csv part_relationships
+.import tables/elements.csv elements
+.import tables/minifigs.csv minifigs
 .import tables/sets.csv sets
 .import tables/inventories.csv inventories
 .import tables/inventory_parts.csv inventory_parts
+.import tables/inventory_minifigs.csv inventory_minifigs
 .import tables/inventory_sets.csv inventory_sets
 
 insert or ignore into parts (part_num, name, part_cat_id)
