@@ -11,7 +11,7 @@ $(DB): tables/themes.csv tables/colors.csv tables/part_categories.csv tables/par
 	sqlite3 $(DB) < scripts/import.sql
 
 tables/%.csv:
-	curl --silent https://m.rebrickable.com/media/downloads/$(subst tables/,,$@).gz | gunzip -c | tail -n +2 > $@
+	curl --silent https://cdn.rebrickable.com/media/downloads/$(subst tables/,,$@).gz | gunzip -c | tail -n +2 > $@
 
 indices: $(DB)
 	sqlite3 $(DB) < scripts/indices.sql
