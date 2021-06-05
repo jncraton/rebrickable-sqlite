@@ -120,10 +120,11 @@ select
   max(year) as year_to,
   min(year) as year_from,
   "https://rebrickable.com/parts/" || part_num as part_url,
-  "https://cdn.rebrickable.com/media/thumbs/parts/ldraw/71/" ||
-    part_num || ".png/85x85p.png" as part_img_url
+  "https://cdn.rebrickable.com/media/thumbs/parts/elements/" ||
+    element_id || ".jpg/85x85p.jpg" as part_img_url
 from set_parts
 join sets on sets.set_num = set_parts.set_num
+natural join elements
 group by part_num;
 
 create view if not exists part_color_info
