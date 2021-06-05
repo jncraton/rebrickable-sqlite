@@ -16,3 +16,4 @@ where year_from >= 2021
   and part_cat_id != 59 -- Minifig heads
   and part_cat_id != 60 -- Minifig upper body
   and part_cat_id != 65 -- Minifig Headwear
+order by num_sets desc 
