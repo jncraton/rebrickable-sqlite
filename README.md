@@ -1,6 +1,6 @@
 # rebrickable-sqlite
 
-[![Build Status](https://travis-ci.org/jncraton/rebrickable-import-dumps.svg?branch=master)](https://travis-ci.org/jncraton/rebrickable-import-dumps)
+[![Build](https://github.com/jncraton/rebrickable-sqlite/actions/workflows/build.yml/badge.svg)](https://github.com/jncraton/rebrickable-sqlite/actions/workflows/build.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/00e90f88-2cdf-4dfc-99dc-59db226fb28e/deploy-status)](https://app.netlify.com/sites/rebrickable-sqlite/deploys)
 
 This is set of scripts to create a local copy of the Rebrickable database. It uses the CSV dumps provided by [Rebrickable](https://rebrickable.com/downloads/) and is a relatively quick and easy way to create a local copy of all Lego parts and set inventories.
