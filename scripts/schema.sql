@@ -96,20 +96,16 @@ create table if not exists inventory_minifigs (
 create view if not exists set_parts
 as 
 select 
-  i1.set_num,
+  inventories.set_num,
   inventory_parts.inventory_id, 
   inventory_parts.part_num, 
   inventory_parts.color_id, 
   inventory_parts.quantity, 
   inventory_parts.is_spare
-from inventories i1
+from inventories
 left outer join inventory_parts on
-  inventory_parts.inventory_id = i1.id
-where i1.version = (
-  select max(version)
-  from inventories i2 
-  where i1.id = i2.id
-);
+  inventory_parts.inventory_id = inventories.id
+where inventories.version = 1;
 
 create view if not exists part_info
 as
