@@ -107,3 +107,9 @@ where part_num = '4085a';
 select part_num, canonical_part_num
 from canonical_parts
 where part_num = '4085b';
+
+-- List part count for set
+
+select sum(quantity)
+from set_parts
+where set_num = '41449-1';
