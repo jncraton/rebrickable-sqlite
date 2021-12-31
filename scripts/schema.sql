@@ -157,4 +157,4 @@ select
 from part_nums
 left join part_relationships on 
   child_part_num = part_num
-  and (rel_type = 'M' or rel_type = 'A');
+  and (rel_type = 'M');
