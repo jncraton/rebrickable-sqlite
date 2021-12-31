@@ -32,9 +32,6 @@ create table if not exists part_relationships (
   rel_type varchar(1),
   child_part_num varchar(20),
   parent_part_num varchar(20)
-  --TODO: foreign key constraints currently fail on this table
-  --foreign key(child_part_num) references parts(part_num)
-  --foreign key(parent_part_num) references parts(part_num)
 );
 
 create table if not exists elements (
