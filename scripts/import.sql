@@ -4,9 +4,12 @@
 pragma foreign_keys = 0;
 
 delete from inventory_sets;
+delete from inventory_minifigs;
 delete from inventory_parts;
 delete from inventories;
 delete from sets;
+delete from minifigs;
+delete from elements;
 delete from part_relationships;
 delete from parts;
 delete from part_categories;
