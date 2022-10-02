@@ -1,7 +1,7 @@
 DB = dist/bricks.db
 sqldump = dist/bricks.sql
 
-all: $(sqldump)
+all: $(DB)
 
 $(sqldump): $(DB)
 	sqlite3 $(DB) .dump > $(sqldump)
