@@ -61,6 +61,7 @@ create table if not exists sets (
   year smallint,
   theme_id smallint,
   num_parts int,
+  img_url varchar(128),
   foreign key(theme_id) references themes(id)
 );
 
