@@ -147,15 +147,19 @@ union
 select parent_part_num as part_num from part_relationships;
 
 drop view if exists canonical_parts;
-create view if not exists canonical_parts
+create view canonical_parts
 as
-select
-  part_num,
-  case 
-    when parent_part_num is null 
-    then part_num else parent_part_num 
-    end as canonical_part_num
-from part_nums
-left join part_relationships on 
-  child_part_num = part_num
-  and (rel_type = 'M');
+with RECURSIVE part_tree(part_num, canonical_part_num) as (
+  -- Base case: parts that have no parents are their own root
+  -- a -> a
+  select part_num, part_num from parts where part_num not in (select child_part_num from part_relationships where rel_type = 'M')
+
+  UNION
+  -- Recursive case: join child parts with their parents' roots
+  -- when looking record c -> b
+  select child_part_num, part_tree.canonical_part_num -- c -> a
+  from part_relationships
+  join part_tree on part_relationships.parent_part_num = part_tree.part_num -- join b -> a
+  where rel_type = 'M'
+)
+select * from part_tree;
