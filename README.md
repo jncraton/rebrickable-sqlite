@@ -1,7 +1,7 @@
 # rebrickable-sqlite
 
 [![Build](https://github.com/jncraton/rebrickable-sqlite/actions/workflows/build.yml/badge.svg)](https://github.com/jncraton/rebrickable-sqlite/actions/workflows/build.yml)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/00e90f88-2cdf-4dfc-99dc-59db226fb28e/deploy-status)](https://app.netlify.com/sites/rebrickable-sqlite/deploys)
+[![Deploy](https://github.com/jncraton/rebrickable-sqlite/actions/workflows/deploy.yml/badge.svg)](https://github.com/jncraton/rebrickable-sqlite/actions/workflows/deploy.yml)
 
 This is set of scripts to create a local copy of the Rebrickable database. It uses the CSV dumps provided by [Rebrickable](https://rebrickable.com/downloads/) and is a relatively quick and easy way to create a local copy of all Lego parts and set inventories.
 
@@ -13,7 +13,7 @@ Simply run `make`. You will need sqlite3 and curl installed if they are not alre
 
 This will download the table data from Rebrickable and import it into an SQLite database. The output database file is dist/bricks.db.
 
-Alternatively, you can download a [complete version of the database](https://rebrickable-sqlite.netlify.app/bricks.db) directly, but this won't include the newest set and element updates.
+Alternatively, you can download a [complete version of the database](https://jncraton.github.io/rebrickable-sqlite/bricks.db) directly, but this won't include the newest set and element updates.
 
 ## Example queries
 
