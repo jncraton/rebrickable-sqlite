@@ -19,7 +19,7 @@ with sqlite3.connect("dist/bricks.db") as con:
         for i, part in enumerate(cur.fetchall()):
             if needs_headers:
                 headers = "</th><th>".join(part.keys())
-                html.write(f"<table><thead><tr><th>Row</th><th>{headers}</th></thead><tbody>")
+                html.write(f"<table><thead><tr><th>row</th><th>{headers}</th></thead><tbody>")
                 needs_headers = False
 
             html.write(f"<tr><td>{i}</td>")
