@@ -16,13 +16,13 @@ with sqlite3.connect("dist/bricks.db") as con:
 
     with open(sys.argv[2], "w") as html:
         needs_headers = True
-        for part in cur.fetchall():
+        for i, part in enumerate(cur.fetchall()):
             if needs_headers:
                 headers = "</th><th>".join(part.keys())
-                html.write(f"<table><thead><tr><th>{headers}</th></thead><tbody>")
+                html.write(f"<table><thead><tr><th>Row Num</th><th>{headers}</th></thead><tbody>")
                 needs_headers = False
 
-            html.write("<tr>")
+            html.write(f"<tr><td>{i}</td>")
             for key in part.keys():
                 if "https" in str(part[key]):
                     html.write(f'<td><a href="{part[key]}">{part[key]}</a></td>')
